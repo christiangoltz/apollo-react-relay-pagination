@@ -35,7 +35,7 @@ const ItemsWithData = graphql(ItemsQuery)(ItemsWithPagination);
 ## Using the merge function directly
 The library additionally provides the function `mergeResults` that merges a new response containing a paginated list into a previous version of the same answer. You can use this to have more flexibility.
 ```
-import { relayPagination } from "../helpers/ApolloRelayPagination";
+import { mergeResults } from "../helpers/ApolloRelayPagination";
 
 
 class ItemsBase extends React.Component {
