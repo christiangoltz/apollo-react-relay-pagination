@@ -24,40 +24,40 @@ export function relayPagination(query, Component) {
     };
 }
 
-function mergeEdges(property, previousProperty, reload) {
-    const newEdges = property.edges;
-    const pageInfo = property.pageInfo;
+function mergeEdges(previous, current, reload) {
+    const newEdges = current.edges;
+    const pageInfo = current.pageInfo;
     let edges = [];
 
     if (reload) {
         edges = [ ...newEdges ];
     } else {
-        if (previousProperty) {
-            edges = [ ...previousProperty.edges, ...newEdges ];
+        if (previous) {
+            edges = [ ...previous.edges, ...newEdges ];
         } else {
             edges = newEdges;
         }
     }
-    return Object.assign({}, previousProperty, {
-        ...property,
+    return Object.assign({}, previous, {
+        ...current,
         edges: edges,
         pageInfo: pageInfo
     });
 }
 
-export function mergeResults(previousParent, parent, reload) {
+export function mergeResults(previous, current, reload) {
     let result = {};
-    if (typeof parent === 'object') {
-        for (let property of _.keys(parent)) {
+    if (typeof current === 'object') {
+        for (let property of _.keys(current)) {
             if (property === 'edges') {
-                return mergeEdges(parent, previousParent, reload);
+                return mergeEdges(previous, current, reload);
             } else {
-                result[property] = mergeResults(previousParent[property], parent[property]);
+                result[property] = mergeResults(previous[property], current[property]);
             }
         }
     } else {
-        return parent;
+        return current;
     }
 
-    return Object.assign({}, previousParent, result);
+    return Object.assign({}, previous, result);
 }
