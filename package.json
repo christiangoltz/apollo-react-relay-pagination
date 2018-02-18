@@ -1,0 +1,35 @@
+{
+  "name": "apollo-react-relay-pagination",
+  "version": "1.0.0",
+  "description": "This is a helper library to write less code when using relay style pagination with apollo and react.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christiangoltz/apollo-react-relay-pagination.git"
+  },
+  "keywords": [
+    "apollo",
+    "react",
+    "relay",
+    "pagination"
+  ],
+  "author": "Christian Goltz <goltzchristian@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christiangoltz/apollo-react-relay-pagination/issues"
+  },
+  "homepage": "https://github.com/christiangoltz/apollo-react-relay-pagination#readme",
+  "dependencies": {
+    "lodash": "^4.17.5"
+  },
+  "devDependencies": {
+    "babel-jest": "21.0.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react-native": "3.0.2",
+    "jest": "21.0.2",
+    "react": "16.0.0"
+  }
+}
