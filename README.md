@@ -57,30 +57,31 @@ import { mergeResults } from "apollo-react-relay-pagination";
 
 
 class ItemsBase extends React.Component {
-    render() {
-        ...
-    }
+  render() {
+    ...
+  }
 }
 
 export function getProps(props) {
-    props.loadMore = (reload) => {
-        let variables = ...;
-        if (!reload) {
-            variables.after = props.data.viewer.profile.groups.pageInfo.endCursor;
-        }
+  props.loadMore = (reload) => {
+    let variables = ...;
+    if (!reload) {
+      variables.after = props.data.viewer.profile.groups.pageInfo.endCursor;
+    }
 
-        return props.data.fetchMore({
-            query: ItemsQuery,
-            variables,
-            updateQuery: (previousResult, { fetchMoreResult }) => {
-                return mergeResults(previousResult, fetchMoreResult, reload)
-            },
-        });
-    };
-    return props;
+    return props.data.fetchMore({
+      query: ItemsQuery,
+      variables,
+      updateQuery: (previousResult, { fetchMoreResult }) => {
+        return mergeResults(previousResult, fetchMoreResult, reload)
+      },
+      });
+  };
+  return props;
 }
 
-const ItemsWithData = graphql(ItemsQuery, {
+const ItemsWithData =
+  graphql(ItemsQuery, {
     props: getProps,
 })(ItemsWithPagination);
 ```
