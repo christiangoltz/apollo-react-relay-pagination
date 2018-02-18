@@ -2,9 +2,20 @@
 
 This library provides an abstraction for relay style pagination for apollo and react.
 
-# Usage
+## Installation
 
-## Wrapping the whole component
+```
+yarn add apollo-react-relay-pagination
+```
+or
+
+```
+npm install --save apollo-react-relay-pagination
+```
+
+## Usage
+
+### Wrapping the whole component
 This should be your preferred method of integration. Just enhance your component using `relayPagination` and then use the `loadMore` method from the props as shown below.
 
 ```
@@ -32,7 +43,7 @@ const ItemsWithPagination = relayPagination(ItemsQuery, ItemsBase);
 const ItemsWithData = graphql(ItemsQuery)(ItemsWithPagination);
 ```
 
-## Using the merge function directly
+### Using the merge function directly
 The library additionally provides the function `mergeResults` that merges a new response containing a paginated list into a previous version of the same answer. You can use this to have more flexibility.
 ```
 import { mergeResults } from "apollo-react-relay-pagination";
