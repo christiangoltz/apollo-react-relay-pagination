@@ -23,24 +23,31 @@ import { relayPagination } from "apollo-react-relay-pagination";
 
 
 class ItemsBase extends React.Component {
-    render() {
-        ...
-    }
+  render() {
+    ...
+  }
 
-    // call this whenever you want to load more elements (e.g. from componentDidUpdate)
-    load (reload) {
-        if (!this.state.loadingMore) {
-            if (reload || (this.props.dataReady && this.props.data.viewer.items.pageInfo.hasNextPage)) {
-                this.setState(previousState => ({...previousState, loadingMore: true}));
-                this.props.loadMore(reload, { after: reload ? null: this.props.data.viewer.items.pageInfo.endCursor});
-                this.setState(previousState => ({...previousState, loadingMore: false}));
-            }
-        }
+  // call this whenever you want to load more
+  // elements (e.g. from componentDidUpdate)
+  load (reload) {
+    if (!this.state.loadingMore) {
+      if (reload || (...check for hasNextPage...)) {
+        this.setState(p => ({ ...p, loadingMore: true }));
+        this.props.loadMore(reload, {
+        after: reload ?
+            null :
+            this.props.data.viewer.comments.pageInfo.endCursor
+        });
+        this.setState(p => ({ ...p, loadingMore: false }));
+      }
     }
+  }
 }
 
-const ItemsWithPagination = relayPagination(ItemsQuery, ItemsBase);
-const ItemsWithData = graphql(ItemsQuery)(ItemsWithPagination);
+const ItemsWithPagination =
+  relayPagination(ItemsQuery, ItemsBase);
+const ItemsWithData =
+  graphql(ItemsQuery)(ItemsWithPagination);
 ```
 
 ### Using the merge function directly
