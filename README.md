@@ -21,7 +21,7 @@ class ItemsBase extends React.Component {
         if (!this.state.loadingMore) {
             if (reload || (this.props.dataReady && this.props.data.viewer.items.pageInfo.hasNextPage)) {
                 this.setState(previousState => ({...previousState, loadingMore: true}));
-                this.props.loadMore(reload, { after: reload ? null: this.props.data.items.pageInfo.endCursor});
+                this.props.loadMore(reload, { after: reload ? null: this.props.data.viewer.items.pageInfo.endCursor});
                 this.setState(previousState => ({...previousState, loadingMore: false}));
             }
         }
