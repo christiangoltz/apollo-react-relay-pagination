@@ -27,7 +27,6 @@
   },
   "devDependencies": {
     "babel-jest": "21.0.2",
-    "babel-preset-env": "^1.6.1",
     "babel-preset-react-native": "3.0.2",
     "jest": "21.0.2",
     "react": "16.0.0"
