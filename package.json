@@ -1,6 +1,6 @@
 {
   "name": "apollo-react-relay-pagination",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "This is a helper library to write less code when using relay style pagination with apollo and react.",
   "main": "build/index.js",
   "scripts": {
