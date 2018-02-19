@@ -1,3 +1,4 @@
 {
-  "presets": ["react-native"]
+  "presets": ["react"],
+  "plugins": ["transform-es2015-arrow-functions", "babel-plugin-transform-class-properties", "transform-object-rest-spread"]
 }
