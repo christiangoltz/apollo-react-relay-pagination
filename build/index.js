@@ -101,7 +101,7 @@ function mergeResults(previous, current, reload) {
                 if (property === 'edges') {
                     return mergeEdges(previous, current, reload);
                 } else {
-                    result[property] = mergeResults(previous[property], current[property]);
+                    result[property] = mergeResults(previous[property], current[property], reload);
                 }
             }
         } catch (err) {
