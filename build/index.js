@@ -89,7 +89,12 @@ function mergeEdges(previous, current, reload) {
 
 function mergeResults(previous, current, reload) {
     var result = {};
-    if ((typeof current === 'undefined' ? 'undefined' : _typeof(current)) === 'object') {
+
+    if (previous === null || current === null) {
+        return current;
+    } else if (Array.isArray(current) || Array.isArray(previous)) {
+        return current;
+    } else if ((typeof current === 'undefined' ? 'undefined' : _typeof(current)) === 'object') {
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
         var _iteratorError = undefined;

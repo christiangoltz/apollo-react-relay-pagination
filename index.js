@@ -47,7 +47,12 @@ function mergeEdges(previous, current, reload) {
 
 export function mergeResults(previous, current, reload) {
     let result = {};
-    if (typeof current === 'object') {
+
+    if (previous === null || current === null) {
+        return current;
+    } else if (Array.isArray(current) || Array.isArray(previous)) {
+        return current;
+    } else if (typeof current === 'object') {
         for (let property of _.keys(current)) {
             if (property === 'edges') {
                 return mergeEdges(previous, current, reload);
